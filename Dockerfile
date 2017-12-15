@@ -1,18 +1,16 @@
 # Use the latest stable Ubuntu version (currently 16.04)
-FROM ubuntu:latest
+FROM ubuntu:16.04
 
-# Make sure the image is updated and install some prerequisites
-RUN apt update && apt upgrade -y && \
-  apt install -y \
-  xz-utils \
-  build-essential
-
-# Download the latest version of Clang (official binary)
-ADD http://releases.llvm.org/5.0.0/clang+llvm-5.0.0-linux-x86_64-ubuntu16.04.tar.xz /
-
+# Make sure the image is updated, install some prerequisites,
+# Download the latest version of Clang (official binary) for Ubuntu
 # Extract the archive and add Clang to the PATH
-RUN tar xf clang+llvm-5.0.0-linux-x86_64-ubuntu16.04.tar.xz && \
-  rm clang+llvm-5.0.0-linux-x86_64-ubuntu16.04.tar.xz && \
+RUN apt update && apt install -y \
+  xz-utils \
+  build-essential \
+  curl \
+  && rm -rf /var/lib/apt/lists/* \
+  && curl -SL http://releases.llvm.org/5.0.0/clang+llvm-5.0.0-linux-x86_64-ubuntu16.04.tar.xz \
+  | tar -xJC . && \
   mv clang+llvm-5.0.0-linux-x86_64-ubuntu16.04 clang_5.0.0 && \
   echo 'export PATH=/clang_5.0.0/bin:$PATH' >> ~/.bashrc && \
   echo 'export LD_LIBRARY_PATH=/clang_5.0.0/lib:LD_LIBRARY_PATH' >> ~/.bashrc
