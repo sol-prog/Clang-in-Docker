@@ -9,11 +9,11 @@ RUN apt update && apt install -y \
   build-essential \
   curl \
   && rm -rf /var/lib/apt/lists/* \
-  && curl -SL http://releases.llvm.org/5.0.0/clang+llvm-5.0.0-linux-x86_64-ubuntu16.04.tar.xz \
+  && curl -SL http://releases.llvm.org/5.0.1/clang+llvm-5.0.1-x86_64-linux-gnu-ubuntu-16.04.tar.xz \
   | tar -xJC . && \
-  mv clang+llvm-5.0.0-linux-x86_64-ubuntu16.04 clang_5.0.0 && \
-  echo 'export PATH=/clang_5.0.0/bin:$PATH' >> ~/.bashrc && \
-  echo 'export LD_LIBRARY_PATH=/clang_5.0.0/lib:LD_LIBRARY_PATH' >> ~/.bashrc
+  mv clang+llvm-5.0.1-x86_64-linux-gnu-ubuntu-16.04 clang_5.0.1 && \
+  echo 'export PATH=/clang_5.0.1/bin:$PATH' >> ~/.bashrc && \
+  echo 'export LD_LIBRARY_PATH=/clang_5.0.1/lib:LD_LIBRARY_PATH' >> ~/.bashrc
 
 # Start from a Bash prompt
 CMD [ "/bin/bash" ]
