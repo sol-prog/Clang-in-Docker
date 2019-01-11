@@ -1,3 +1,5 @@
+// if block with init-statement, the example is a bit silly,
+// but you can use it to check if your compiler supports C++17:
 #include <iostream>
 
 int main() {
