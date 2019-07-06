@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
   | tar -xJC . && \
   mv clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_8.0.0 && \
   echo 'export PATH=/clang_8.0.0/bin:$PATH' >> ~/.bashrc && \
-  echo 'export LD_LIBRARY_PATH=/clang_8.0.0/lib:LD_LIBRARY_PATH' >> ~/.bashrc
+  echo 'export LD_LIBRARY_PATH=/clang_8.0.0/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 # Start from a Bash prompt
 CMD [ "/bin/bash" ]
