@@ -1,6 +1,6 @@
 // C++17 optional test.
 // You can compile the code with:
-// clang++ -std=c++17 -stdlib=libc++ -Wall -pedantic test_optional.cpp -o test_optional
+// clang++ -std=c++17 -stdlib=libc++ -Wall -pedantic optional_test.cpp -o optional_test
 #include <iostream>
 #include <optional>
 
@@ -25,3 +25,4 @@ int main() {
     // Show the optional value
     show_optional_value(o1);
 }
+
